@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.Collections;
 
 public class PickerBestPlayer {
     public static void main(String[] args) {
@@ -18,12 +17,10 @@ public class PickerBestPlayer {
             playerNumbers.add(sc.nextLine());
 
             if (playerNumbers.contains("print")) {   //.contains : 값이 존재하는지 확인하는 메서드
-                double max = findMaxValue((ArrayList<Double>) playerRecords);
-                //System.out.println(max);
+                double max = Collections.max(playerRecords);
 
                 for (int i = 0; i < playerRecords.size(); i++) {
                     if (playerRecords.get(i).equals(max)) {
-
                         System.out.println("1등 : "+playerNumbers.get(i)+"번 선수 / "+ max+"초 (참가인원 : "+playerRecords.size()+"명)");
                     }
                 }
@@ -40,23 +37,6 @@ public class PickerBestPlayer {
         }
         sc.close();
     }
-
-
-
-    public static double findMaxValue(ArrayList<Double> arrayList) { //가장 큰 수 찾는 메서드
-
-
-        double max = arrayList.get(0);
-
-
-        for (int i = 1; i < arrayList.size(); i++) {
-            double current = arrayList.get(i);
-            if (current > max) {
-                max = current;
-            }
-        }
-
-        return max;
-    }
 }
+
 
