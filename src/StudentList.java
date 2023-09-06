@@ -1,22 +1,34 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.regex.Pattern;
 
 public class StudentList {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in); // 스캐너 불러오기
-        ArrayList<String> students = new ArrayList<String>(); // 제네릭을 사용하여 타입(String) 지정
+        ArrayList<String> students = new ArrayList<>(); // 제네릭을 사용하여 타입(String) 지정
 
-
+        String input;
         System.out.println("학생의 이름을 입력해 주세요");
-        int i = 0;
         while (true) {
-            students.add(sc.nextLine());
-            i++;
-            if (students.contains("print")) {   //값이 존재하는지 확인하는 메서드
+            input = sc.nextLine();
+            if (input.equals("print")) {
                 break;
+            } else if (Pattern.matches("^[가-힣]*$",input)){
+                students.add(input);
+            } else {
+                System.out.println("학생의 이름은 한글로만 입력해야 합니다.");
             }
         }
+        Collections.sort(students);
+
+        System.out.println("[학생 명단(가나다순)]");
+        for (String student : students) {
+            System.out.println(student);
+        }
+
+
     }
 }
 
