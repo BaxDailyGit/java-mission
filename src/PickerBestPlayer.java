@@ -19,6 +19,7 @@ public class PickerBestPlayer {
             if (playerNumbers.contains("print")) {   //.contains : 값이 존재하는지 확인하는 메서드
                 double max = Collections.max(playerRecords);
 
+                //playerRecords.indexOf(max) 첫번째 인덱스만 반환
                 for (int i = 0; i < playerRecords.size(); i++) {
                     if (playerRecords.get(i).equals(max)) {
                         System.out.println("1등 : "+playerNumbers.get(i)+"번 선수 / "+ max+"초 (참가인원 : "+playerRecords.size()+"명)");
